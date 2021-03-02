@@ -29,7 +29,7 @@ class Svgs2font {
       fixedWidth,
       centerHorizontally,
       normalize,
-      fontHeight,
+      fontHeight = 1024,
       round,
       ascent,
       log = function() {},
