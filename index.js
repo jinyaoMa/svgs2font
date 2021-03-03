@@ -28,7 +28,7 @@ class Svgs2font {
       fontWeight,
       fixedWidth,
       centerHorizontally,
-      normalize,
+      normalize = true,
       fontHeight = 1024,
       round,
       ascent,
@@ -84,10 +84,12 @@ class Svgs2font {
     }
   }
 
-  svgicons2svgfont() {
+  svgicons2svgfont(_options) {
     const { fontName, output, svgsPath, startUnicode, fontFileName, iconInfos, prependUnicode } = this.options;
     const fontStream = new SVGIcons2svgfont({
       fontName,
+      normalize: _options.normalize || false,
+      fontHeight: _options.fontHeight
     });
     const prependReg = /(?:0x((?:[0-9]|[a-e]){4})-)?(.*)/i;
     const fontData = {
